@@ -1,0 +1,23 @@
+version: '3'
+services:
+  db:
+    image: nouchka/sqlite3:latest
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./db/:/root/db/
+  demo-web:
+    build: .
+    command: './bin/rails server'
+    environment:
+      - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
+    volumes:
+      - app-storage:/rails/storage
+    depends_on:
+      - db
+    ports:
+      - '3000:3000'
+
+volumes:
+  db: {}
+  app-storage: {}

@@ -97,6 +97,8 @@ Rails.application.configure do
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
+  config.active_record.sqlite3_production_warning = false
+
   # Devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
