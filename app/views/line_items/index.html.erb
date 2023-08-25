@@ -1,7 +1,5 @@
 <p style="color: green"><%= notice %></p>
-
 <h1>Line items</h1>
-
 <div id="line_items">
   <% @line_items.each do |line_item| %>
     <%= render line_item %>
@@ -10,5 +8,4 @@
     </p>
   <% end %>
 </div>
-
 <%= link_to "New line item", new_line_item_path %>
