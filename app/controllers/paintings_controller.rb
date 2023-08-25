@@ -3,7 +3,7 @@
 class PaintingsController < ApplicationController
   before_action :set_painting, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[show index]
-  # before_action :correct_user, only: %i[new edit update destroy]
+  before_action :correct_user, only: %i[new edit update destroy]
 
   # GET /paintings or /paintings.json
   def index
