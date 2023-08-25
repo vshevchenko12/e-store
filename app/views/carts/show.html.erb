@@ -1,0 +1,17 @@
+<div class="keep-shopping py-1 mt-4 text-end">
+  <%= link_to 'Keep Shopping', paintings_path, class: 'btn btn-outline-primary' %>
+</div>
+<hr />
+<section class="section">
+  <%= render(@cart.line_items) %>
+  <div class="columns">
+    <div class="column">
+      <%= button_to 'Empty Cart', @cart, form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class:'btn btn-outline-danger btn-sm' %>
+    </div>
+    <div class="text-end">
+      <h4 class="title">
+        <span class="fs-5">Total:</span> <%= number_to_currency(@cart.total_price) %>
+      </h4>
+    </div>
+  </div>
+</section>

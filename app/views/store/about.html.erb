@@ -1,0 +1,65 @@
+<h1> About Me </h1>
+<p>
+  Iryna Shevchenko is an artist originally from Ukraine who lives in Canada. She has Master Degree of Fine Arts where she found her passion for fine art.
+  Although Iryna creates artwork of different styles, her website is dedicated exclusively to both contemporary decorative and traditional decorative painting styles.
+  Traditional Ukrainian decorative painting arose out of a folk art which was believed to have the magical power to protect from sorrow. Depictions of certain elements such as birds and flowers represented prosperity, harmony, and happiness. Also she adds silhoettes of hearts, leaves and territory of Ukraine.
+</p>
+<br>
+<hr>
+<br>
+<%# Subscribe Section %>
+<selection id="subscribe" class="py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="d-flex mt-3">
+          <h2 class='pt-2 me-5' >Subscribe Me</h2>
+          <%= link_to 'https://www.behance.net/ArinaShe', class:'btn btn-lg fs-3 mt-0', target: '_blank' do %>
+            <i class="bi bi-behance"></i>
+          <%end%>
+          <%= link_to 'https://www.instagram.com/arhideeva/?hl=en', class:'btn btn-lg fs-4 mt-1', target: '_blank' do %>
+            <i class="bi bi-instagram"></i>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</selection>
+<br>
+<hr>
+<br>
+<%# Contact Section %>
+<selection id="contact" class="py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h2>Contact Me</h2>
+        <p>Have a questions or feedback? Please send me a message</p>
+
+        <form class="contact-form">
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            placeholder="Your Name"
+          />
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            placeholder="Your Email"
+          />
+          <textarea
+            id="message"
+            placeholder="Your Message"
+            class="form-control"
+            rows="5"
+          ></textarea>
+          <button type="submit" class="btn btn-outline-success mt-3 mb-5">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</selection>

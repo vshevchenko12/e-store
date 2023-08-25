@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <%= link_to root_path do %>
+      <%= image_tag 'logo.jpg', alt: 'My Brand Logo', class:"navbar-brand mt-5"%>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <%= link_to root_path do %>
+          <%= image_tag 'logo.jpg', alt: 'My Brand Logo', class:"navbar-brand offcanvas-title", id:"offcanvasNavbarLabel" %>
+        <% end %>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" id="offcanvas-close-btn" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav flex-grow-1 pe-3 fs-5">
+          <li class="nav-item"> <%= link_to 'About Me', about_path, class:"nav-link btn btn-info m-2 ps-3 pe-3" %> </li>
+          <li><%= link_to 'Paintings', paintings_path, class:"nav-link btn btn-info m-2 ps-3 pe-3" %></li>
+          <% if user_signed_in? && current_user.id == 1  %>
+            <li class="nav-item"> <%= link_to 'Add Paining', new_painting_path, class:"nav-link btn btn-info m-2 ps-3 pe-3"%> </li>
+          <% end %>
+          <ul class="navbar-nav fs-5 ms-auto">
+            <% if user_signed_in? %>
+              <li class="nav-item"> <%= link_to edit_user_registration_path, class:"nav-link btn btn-info m-2 ps-3 pe-3" do%>
+                  <%= current_user.name %> <i class="bi bi-person-circle"></i>
+                <% end %> </li>
+              <li class="nav-item">
+                <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class:"nav-link btn btn-info m-2 ps-3 pe-3"  do %>
+                  Sign Out <i class="bi bi-box-arrow-right"></i>
+                <% end %>
+              </li>
+            <% else %>
+              <li class="nav-item"> <%= link_to new_user_session_path, class:"nav-link btn btn-info m-2 ps-3 pe-3" do %> Sign In <i class="bi bi-box-arrow-in-right"></i>
+                <% end %>
+              </li>
+              <li class="nav-item"> <%= link_to 'Sign Up', new_user_registration_path, class:"nav-link btn btn-info m-2 ps-3 pe-3" %>
+              </li>
+            <% end %>
+            <% if total_cart_items %>
+              <%= link_to cart_path(@cart), class:"nav-link btn btn-info position-relative m-2 ps-3 pe-3" do %>
+                Cart <i class="bi bi-cart2"></i> <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"><% cart_count_over_one %> <span class="visually-hidden">unread messages</span></span>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>

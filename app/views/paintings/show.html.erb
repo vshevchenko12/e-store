@@ -1,0 +1,33 @@
+<section class="section painting-show">
+  <div>
+    <div class="feature-image mt-5">
+      <%= image_tag(@painting.image_url(:default)) %>
+    </div>
+    <h1 class="title my-5"><%= @painting.title %></h1>
+    <div class="content p-4 mt-3 bg-white">
+      <h3 class="subtitle">Description</h3>
+      <%= @painting.description %>
+      <h5 class="subtitle mt-2">Materials</h5>
+      <%= @painting.materials %>
+      <h5 class="subtitle mt-2">Size</h5>
+      <%= @painting.size %>
+    </div>
+  </div>
+  <div>
+    <div class="bg-white p-4">
+      <h4 class="title text-end mb4"><%= number_to_currency(@painting.price) %></h4>
+      <% if current_user.nil?%>
+        <%= button_to 'Plese Login before adding an item to the cart', user_session_path, class: 'btn btn-outline-success add-to-cart' %>
+      <% else %>
+        <%= button_to 'Add to cart', line_items_path(painting_id: @painting), class: 'btn btn-outline-success add-to-cart' %>
+      <% end %>
+    </div>
+  </div>
+  <% if painting_author(@painting) %>
+    <div class="d-flex mt-3">
+      <%= link_to 'Edit', edit_painting_path(@painting), class: 'btn btn-outline-warning btn-sm me-2' %>
+      <%= button_to "Delete", @painting, form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, class:'btn btn-outline-danger btn-sm' %>
+    </div>
+  <% end %>
+  <%= link_to "Back to paintings", paintings_path, class:'btn btn-outline-secondary btn-sm mt-2 mb-5' %>
+</section>

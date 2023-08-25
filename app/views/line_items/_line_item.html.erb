@@ -1,0 +1,25 @@
+<div class="row align-middle ">
+  <div class="col-1 fs-5">
+    <%= line_item.quantity %>
+  </div>
+  <div class="col-4 align-middle">
+    <figure class="is-128x128 image">
+      <%= image_tag(line_item.painting.image_url(:cart)) %>
+    </figure>
+  </div>
+  <div class="col-7">
+    <strong><%= line_item.painting.title %></strong>
+    <div class="row align-middle">
+      <div class="col-9">
+        <%= truncate(line_item.painting.description, length: 50) %>
+      </div>
+      <div class="col-3 text-end">
+        <strong class="fs-4"><%= number_to_currency(line_item.total_price) %></strong>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="text-end">
+  <%= button_to 'Remove Item', line_item, form: { data: { turbo_confirm: "Are you sure" } }, method: :delete, class: "btn btn-outline-danger btn-sm" %>
+</div>
+<hr/ >

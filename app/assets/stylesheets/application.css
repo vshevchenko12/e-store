@@ -1,0 +1,128 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	background-color: #f9f9f9;
+}
+.navbar-brand {
+	border-radius: 50%;
+	height: 230px;
+}
+
+.navbar {
+	top: 0;
+	left: 0;
+	width: 100wv;
+	background-image: url('https://mir-s3-cdn-cf.behance.net/f05398d9d548aa6ac5a4cecc3a21dd0c/11ef21eb-b92e-4819-8386-65d6700ff267_rwc_0x430x8000x1217x8000.jpg?h=9b9ecd6f666fc1557198c811d975e2c9');
+	background-size: cover; /* Adjust background-size property as needed */
+}
+.nav-link,
+.navbar-toggler {
+	/* background-color: rgb(142, 240, 228); */
+	background-color: rgb(224, 224, 223);
+
+	/* opacity: 0.8; */
+}
+
+.offcanvas-body,
+.navbar-toggler {
+	margin-top: 220px;
+}
+
+.offcanvas-header {
+	margin-bottom: -220px;
+}
+
+#offcanvasNavbarLabel {
+	margin-left: 70px;
+}
+
+#offcanvas-close-btn {
+	margin-bottom: 210px;
+}
+
+.dropdown-item:hover {
+	background-color: #0dcaf0;
+}
+
+/* .offcanvas-end {
+	background-color: rgb(250, 246, 240);
+} */
+
+.painting-index-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: 70px;
+
+	.painting {
+		border-left: 0;
+		border-top: 0;
+		position: relative;
+		min-height: 375px;
+
+		.title {
+			line-height: 1.6rem;
+		}
+		.price {
+			position: absolute;
+			bottom: -20px;
+			right: 20px;
+		}
+	}
+
+	.painting-thumb {
+		position: relative;
+		max-height: 250px;
+		overflow: hidden;
+
+		.painting-image {
+			padding: 15px;
+			max-width: 100%;
+			width: 100%;
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+
+		.condition {
+			position: absolute;
+			bottom: 10px;
+			right: 9px;
+		}
+	}
+}
+
+.painting-show {
+	.title {
+		font-weight: 800;
+	}
+
+	.subtitle {
+		font-weight: 600;
+	}
+
+	.price {
+	}
+
+	.feature-image img {
+		width: 100%;
+	}
+
+	.add-to-cart {
+		width: 100%;
+	}
+}
