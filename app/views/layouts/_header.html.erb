@@ -40,9 +40,10 @@
               </li>
             <% end %>
             <%# check point for the cart -- inside aplication_helpers%>
-            <% if total_cart_items %>
+            <% @total = total_cart_items %>
+            <% if @total %>
               <%= link_to cart_path(@cart), class:"nav-link btn btn-info position-relative m-2 px-2" do %>
-                Cart <i class="bi bi-cart2"></i> <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary fs-6"><%= total_cart_items.inspect %><span class="visually-hidden"></span></span>
+                Cart <i class="bi bi-cart2"></i> <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary fs-6"><%= @total %><span class="visually-hidden"></span></span>
               <% end %>
             <% end %>
           </ul>
